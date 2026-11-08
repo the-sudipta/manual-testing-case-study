@@ -1,0 +1,57 @@
+﻿"Test Case ID","Module","Requirement","Technique","Scenario","Pre-conditions","Test Steps","Test Data","Expected Result","Actual Result","Status","Severity","Priority","Bug ID","Remarks"
+"TC-BK-001","Home","BK-R01","EP","Branding and contact details","Pre: Front page https://automationintesting.online is open","1. Read the hero title
+2. Read the location / contact section","-","Title ""Welcome to Shady Meadows B&B""; address, phone and email shown","As expected","Pass","Minor","P2","","Executed 2026-11-08 on chromium"
+"TC-BK-002","Home","BK-R01","EP","Room list","Pre: Front page https://automationintesting.online is open","1. Scroll to ""Our Rooms""","-","Each room shows type, price ""per night"" and a Book now link","As expected","Pass","Major","P1","","Executed 2026-11-08 on chromium"
+"TC-BK-003","Navigation","BK-R02","EP","Navbar Rooms link","Pre: Front page https://automationintesting.online is open","1. Click ""Rooms"" in the navbar","-","Page scrolls to the rooms section (#rooms)","As expected","Pass","Minor","P3","","Executed 2026-11-08 on chromium"
+"TC-BK-004","Navigation","BK-R02","EP","Navbar Amenities link","Pre: Front page https://automationintesting.online is open","1. Click ""Amenities"" in the navbar","-","Page scrolls to an amenities section","URL changes to /#amenities but nothing happens; the page has no amenities section","Fail","Minor","P3","BUG-018","Executed 2026-11-08 on chromium"
+"TC-BK-005","Navigation","BK-R02","EP","Footer Quick Links","Pre: Front page https://automationintesting.online is open","1. Click Home, Rooms, Booking, Contact in the footer","-","Each link goes to its section","All four links have href=""#"" and only jump to the top of the page","Fail","Minor","P3","BUG-019","Executed 2026-11-08 on chromium"
+"TC-BK-006","Reservation","BK-R04","ST","Open reservation page","Pre: Front page https://automationintesting.online is open","1. Click ""Book now"" on the first room","Room 1","Reservation page with room details, calendar and ""Reserve Now"" button","Page shows a loading spinner forever; GET /api/room/1 returns 500 ""Internal Server Error""","Fail","Critical","P1","BUG-016","Executed 2026-11-08 on chromium"
+"TC-BK-007","Reservation","BK-R04","EP","Reserve with valid guest details","Pre: Reservation page open","1. Select dates
+2. Click Reserve Now
+3. Enter first name, last name, email, phone
+4. Click Reserve Now","Karim / Hasan / karim.hasan@example.com / 01812345678","""Booking Confirmed"" with the selected dates","Blocked by BUG-016: reservation page never loads","Blocked","Critical","P1","BUG-016","Executed 2026-11-08 on chromium"
+"TC-BK-008","Reservation","BK-R04","DT","Reserve with empty guest details","Pre: Reservation page open","1. Click Reserve Now
+2. Leave all fields empty
+3. Click Reserve Now","(empty)","Validation error for each empty field","Blocked by BUG-016: reservation page never loads","Blocked","Major","P2","BUG-016","Executed 2026-11-08 on chromium"
+"TC-BK-009","Availability","BK-R03","DT","Check-out before check-in","Pre: Front page https://automationintesting.online is open","1. Set Check In = today + 65 days
+2. Set Check Out = today + 60 days
+3. Click Check Availability","Reversed range","Error message; no rooms offered","No error; every room is shown with a Book now link carrying the reversed dates","Fail","Major","P2","BUG-017","Executed 2026-11-08 on chromium"
+"TC-BK-010","Availability","BK-R03","EP","Valid date range","Pre: Front page https://automationintesting.online is open","1. Set Check In = today + 60 days
+2. Set Check Out = today + 62 days
+3. Click Check Availability","2 nights","Available rooms shown; Book now links carry the chosen dates","As expected","Pass","Major","P1","","Executed 2026-11-08 on chromium"
+"TC-BK-011","Contact","BK-R05","EP","Send a valid message","Pre: Front page open, contact form visible","1. Fill all fields with valid data
+2. Click Submit","Nusrat Jahan / nusrat.jahan@example.com / 01712345678","""Thanks for getting in touch Nusrat Jahan!""","As expected","Pass","Major","P1","","Executed 2026-11-08 on chromium"
+"TC-BK-012","Contact","BK-R05","DT","Submit an empty form","Pre: Front page open, contact form visible","1. Leave all fields empty
+2. Click Submit","(all empty)","""may not be blank"" error for Name, Email, Phone, Subject and Message","As expected","Pass","Major","P2","","Executed 2026-11-08 on chromium"
+"TC-BK-013","Contact","BK-R05","EP","Invalid email format","Pre: Front page open, contact form visible; other fields valid","1. Enter an email without @
+2. Click Submit","nusrat.example.com","Error ""must be a well-formed email address""","As expected","Pass","Major","P2","","Executed 2026-11-08 on chromium"
+"TC-BK-014","Contact","BK-R05","BVA","Subject 4 characters (min − 1)","Pre: Front page open, contact form visible; other fields valid","1. Enter a 4-character subject
+2. Click Submit","aaaa","Error ""Subject must be between 5 and 100 characters.""","As expected","Pass","Minor","P2","","Executed 2026-11-08 on chromium"
+"TC-BK-015","Contact","BK-R05","BVA","Subject 5 characters (min)","Pre: Front page open, contact form visible; other fields valid","1. Enter a 5-character subject
+2. Click Submit","aaaaa","Message accepted","As expected","Pass","Minor","P2","","Executed 2026-11-08 on chromium"
+"TC-BK-016","Contact","BK-R05","BVA","Subject 101 characters (max + 1)","Pre: Front page open, contact form visible; other fields valid","1. Enter a 101-character subject
+2. Click Submit","""a"" × 101","Error ""Subject must be between 5 and 100 characters.""","As expected","Pass","Minor","P2","","Executed 2026-11-08 on chromium"
+"TC-BK-017","Contact","BK-R05","BVA","Subject 100 characters (max)","Pre: Front page open, contact form visible; other fields valid","1. Enter a 100-character subject
+2. Click Submit","""a"" × 100","Message accepted","As expected","Pass","Minor","P2","","Executed 2026-11-08 on chromium"
+"TC-BK-018","Contact","BK-R05","BVA","Message 19 characters (min − 1)","Pre: Front page open, contact form visible; other fields valid","1. Enter a 19-character message
+2. Click Submit","""a"" × 19","Error ""Message must be between 20 and 2000 characters.""","As expected","Pass","Minor","P2","","Executed 2026-11-08 on chromium"
+"TC-BK-019","Contact","BK-R05","BVA","Message 20 characters (min)","Pre: Front page open, contact form visible; other fields valid","1. Enter a 20-character message
+2. Click Submit","""a"" × 20","Message accepted","As expected","Pass","Minor","P2","","Executed 2026-11-08 on chromium"
+"TC-BK-020","Contact","BK-R05","BVA","Phone 10 digits (min − 1)","Pre: Front page open, contact form visible; other fields valid","1. Enter a 10-digit phone
+2. Click Submit","0171234567","Error ""Phone must be between 11 and 21 characters.""","As expected","Pass","Minor","P2","","Executed 2026-11-08 on chromium"
+"TC-BK-021","Contact","BK-R05","BVA","Phone 11 digits (min)","Pre: Front page open, contact form visible; other fields valid","1. Enter an 11-digit phone
+2. Click Submit","01712345678","Message accepted","As expected","Pass","Minor","P2","","Executed 2026-11-08 on chromium"
+"TC-BK-022","Contact","BK-R05","EP","Phone made of letters (invalid class)","Pre: Front page open, contact form visible; other fields valid","1. Enter letters in Phone
+2. Click Submit","abcdefghijk","Error: phone must contain digits only","Message accepted (HTTP 200, ""Thanks for getting in touch""); only the length is checked","Fail","Minor","P2","BUG-020","Executed 2026-11-08 on chromium"
+"TC-BK-023","Contact","BK-R05","EG","Clarity of validation messages","Pre: Front page open, contact form visible","1. Leave all fields empty
+2. Click Submit
+3. Read the error box","(all empty)","One clear message per field, in form order","Eight messages in one box, not in form order; Subject, Message and Phone get two messages each","Fail","Trivial","P3","BUG-021","Executed 2026-11-08 on chromium"
+"TC-BK-024","Admin","BK-R06","EP","Admin login with valid credentials","Pre: /admin login page is open","1. Enter admin / password
+2. Click Login","admin / password (published demo credentials)","Admin rooms page with Rooms, Report, Branding, Messages","As expected","Pass","Critical","P1","","Executed 2026-11-08 on chromium"
+"TC-BK-025","Admin","BK-R06","EP","Admin login with wrong password","Pre: /admin login page is open","1. Enter admin / wrong password
+2. Click Login","admin / wrong-password","""Invalid credentials"" and user stays on the login page","As expected","Pass","Major","P1","","Executed 2026-11-08 on chromium"
+"TC-BK-026","Admin","BK-R06","ST","Admin logout","Pre: Logged in as admin","1. Click Logout
+2. Open /admin again","-","Front page opens; /admin asks for login again","As expected","Pass","Major","P1","","Executed 2026-11-08 on chromium"
+"TC-BK-027","Policies","BK-R07","EP","Cookie policy page","Pre: Front page https://automationintesting.online is open","1. Click ""Cookie-Policy"" in the footer","-","/cookie shows ""Cookie Policy""","As expected","Pass","Trivial","P3","","Executed 2026-11-08 on chromium"
+"TC-BK-028","Policies","BK-R07","EP","Privacy policy page","Pre: Front page https://automationintesting.online is open","1. Click ""Privacy-Policy"" in the footer","-","/privacy shows ""Privacy Policy Notice""","As expected","Pass","Trivial","P3","","Executed 2026-11-08 on chromium"
+"TC-BK-029","Admin","BK-R06","ST","Navbar before admin login","Pre: /admin login page is open","1. Look at the admin navbar before logging in","-","No Logout button while logged out","""Logout"" button is shown on the login page","Fail","Trivial","P3","BUG-022","Executed 2026-11-08 on chromium"

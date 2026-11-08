@@ -1,0 +1,574 @@
+{
+  "startedAt": "2026-11-08T13:52:40.473Z",
+  "finishedAt": "2026-11-08T13:55:14.545Z",
+  "browser": "chromium",
+  "results": {
+    "TC-BK-024": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 3054,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-010": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 4348,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-025": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 2468,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-026": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 3964,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-009": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 12001,
+      "note": "BUG-017: reversed dates are accepted and every room is offered for booking",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed"
+    },
+    "TC-BK-029": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 9373,
+      "note": "BUG-022: Logout button is visible on the login page",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed"
+    },
+    "TC-BK-011": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 3784,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-012": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 3797,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-013": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 3815,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-006": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 18112,
+      "note": "BUG-016: GET /api/room/{id} returns 500 and the page shows a spinner forever",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed"
+    },
+    "TC-BK-014": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 4101,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-007": {
+      "status": "Blocked",
+      "unexpected": false,
+      "durationMs": 2718,
+      "note": "Blocked by BUG-016: reservation page never loads",
+      "error": ""
+    },
+    "TC-BK-015": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 3839,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-008": {
+      "status": "Blocked",
+      "unexpected": false,
+      "durationMs": 2856,
+      "note": "Blocked by BUG-016: reservation page never loads",
+      "error": ""
+    },
+    "TC-BK-016": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 4173,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-001": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 2970,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-017": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 3232,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-002": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 3021,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-003": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 2912,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-018": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 3537,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-019": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 3668,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-020": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 3329,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-021": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 2342,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-004": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 10617,
+      "note": "BUG-018: Amenities link points to #amenities but no such section exists",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed"
+    },
+    "TC-BK-022": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 2726,
+      "note": "BUG-020: phone \"abcdefghijk\" is accepted; only the length is checked",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m"
+    },
+    "TC-BK-005": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 2510,
+      "note": "BUG-019: all Quick Links in the footer have href=\"#\"",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m"
+    },
+    "TC-BK-027": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 3038,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-028": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 3009,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-024": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1283,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-025": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1878,
+      "note": "",
+      "error": ""
+    },
+    "TC-BK-023": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 10736,
+      "note": "BUG-021: eight messages in random order; Subject, Message and Phone get two each",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed"
+    },
+    "TC-SD-026": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1207,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-033": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1560,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-027": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1343,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-034": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1553,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-028": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1464,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-035": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1598,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-029": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1418,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-036": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1601,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-030": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 2772,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-037": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1662,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-031": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 10164,
+      "note": "BUG-004: only three of the six Add to cart buttons work for problem_user",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed"
+    },
+    "TC-SD-038": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 10161,
+      "note": "BUG-001: item total is shown as $121.94999999999999",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed"
+    },
+    "TC-SD-039": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 2310,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-040": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1559,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-032": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 9303,
+      "note": "BUG-005: Remove button on the product list does nothing for problem_user",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed"
+    },
+    "TC-SD-041": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 9623,
+      "note": "BUG-007: typing in Last Name changes First Name; checkout cannot continue",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed"
+    },
+    "TC-SD-052": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 9367,
+      "note": "BUG-011: only three of the six Add to cart buttons work for error_user",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed"
+    },
+    "TC-SD-012": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1137,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-013": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1011,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-014": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 1273,
+      "note": "BUG-002: all six products show the same dog image",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m"
+    },
+    "TC-SD-015": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1062,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-042": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 9286,
+      "note": "BUG-009: Finish button does nothing for error_user",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed"
+    },
+    "TC-SD-016": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1295,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-017": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1204,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-018": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 1284,
+      "note": "BUG-003: sorting has no effect for problem_user",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m"
+    },
+    "TC-SD-019": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 1543,
+      "note": "BUG-008: sorting raises a \"Sorting is broken!\" alert for error_user",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m"
+    },
+    "TC-SD-020": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 1514,
+      "note": "BUG-012: visual_user sees random prices that differ from the catalogue",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m"
+    },
+    "TC-SD-001": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1675,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-043": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 9109,
+      "note": "BUG-014: empty cart can be checked out and a $0.00 order is completed",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed"
+    },
+    "TC-SD-002": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 924,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-003": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 871,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-004": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1332,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-005": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1393,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-006": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1464,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-007": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 852,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-008": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1075,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-009": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 848,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-051": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 9865,
+      "note": "BUG-010: Last Name field stays empty for error_user but Continue is still accepted",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed"
+    },
+    "TC-SD-044": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 2393,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-010": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 6425,
+      "note": "BUG-013: login takes about 5 s longer than for other users",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m"
+    },
+    "TC-SD-011": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1116,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-021": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1088,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-022": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1344,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-045": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 10587,
+      "note": "BUG-015: badge is cleared but the product still shows \"Remove\"",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed"
+    },
+    "TC-SD-046": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1344,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-047": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1291,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-048": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1020,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-023": {
+      "status": "Fail",
+      "unexpected": false,
+      "durationMs": 9069,
+      "note": "BUG-006: clicking a product opens a different product page",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed"
+    },
+    "TC-SD-049": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1125,
+      "note": "",
+      "error": ""
+    },
+    "TC-SD-050": {
+      "status": "Pass",
+      "unexpected": false,
+      "durationMs": 1697,
+      "note": "",
+      "error": ""
+    }
+  }
+}

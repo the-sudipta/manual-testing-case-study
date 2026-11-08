@@ -1,0 +1,59 @@
+# Test Cases — Sauce Demo
+
+Generated from the workbook source. Technique: EP = Equivalence Partitioning, BVA = Boundary Value Analysis,
+DT = Decision Table, ST = State Transition, EG = Error Guessing.
+
+| Test Case ID | Module | Technique | Scenario | Test Steps | Test Data | Expected Result | Actual Result | Status | Severity | Priority | Bug ID |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| TC-SD-001 | Login | EP | Login with valid standard user | 1. Enter username<br>2. Enter password<br>3. Click Login | standard_user / secret_sauce | Products page opens with title "Products" | As expected | Pass | Critical | P1 |  |
+| TC-SD-002 | Login | EP | Login with locked-out user | 1. Enter locked_out_user<br>2. Enter password<br>3. Click Login | locked_out_user / secret_sauce | Error "Sorry, this user has been locked out." is shown | As expected | Pass | Major | P1 |  |
+| TC-SD-003 | Login | EP | Login with wrong password | 1. Enter standard_user<br>2. Enter a wrong password<br>3. Click Login | standard_user / wrong_password | Error "Username and password do not match any user in this service" | As expected | Pass | Major | P1 |  |
+| TC-SD-004 | Login | DT | Login with empty username | 1. Leave username empty<br>2. Enter password<br>3. Click Login | (empty) / secret_sauce | Error "Username is required" | As expected | Pass | Minor | P2 |  |
+| TC-SD-005 | Login | DT | Login with empty password | 1. Enter username<br>2. Leave password empty<br>3. Click Login | standard_user / (empty) | Error "Password is required" | As expected | Pass | Minor | P2 |  |
+| TC-SD-006 | Login | DT | Login with both fields empty | 1. Leave both fields empty<br>2. Click Login | (empty) / (empty) | Error "Username is required" (username checked first) | As expected | Pass | Minor | P2 |  |
+| TC-SD-007 | Login | EG | Username is case-sensitive | 1. Enter username with capital letters<br>2. Enter password<br>3. Click Login | Standard_User / secret_sauce | Login is rejected with "do not match" error | As expected | Pass | Minor | P3 |  |
+| TC-SD-008 | Login | EG | Close the error message | 1. Log in as locked_out_user<br>2. Click the X on the error | locked_out_user | Error message disappears | As expected | Pass | Trivial | P3 |  |
+| TC-SD-009 | Login | ST | Open inventory URL without login | 1. Open /inventory.html directly | URL /inventory.html | Redirected to login with "You can only access '/inventory.html' when you are logged in." | As expected | Pass | Critical | P1 |  |
+| TC-SD-010 | Login | EP | Login time for performance_glitch_user | 1. Enter performance_glitch_user<br>2. Enter password<br>3. Click Login<br>4. Measure time until product list shows | performance_glitch_user / secret_sauce | Product list shows within 4 seconds (standard_user takes under 1 second) | Product list appears after about 5 seconds (standard_user: under 1 second) | Fail | Major | P2 | BUG-013 |
+| TC-SD-011 | Login | EG | Password is masked | 1. Type in the password field | secret_sauce | Characters are hidden (input type=password) | As expected | Pass | Major | P2 |  |
+| TC-SD-012 | Products | EP | Product list content | 1. Look at the product list | - | 6 products, each with image, name, description, price and Add to cart | As expected | Pass | Critical | P1 |  |
+| TC-SD-013 | Products | EP | Each product has its own image | 1. Compare the six product images | - | Six different images | As expected | Pass | Minor | P2 |  |
+| TC-SD-014 | Products | EP | Product images for problem_user | 1. Compare the six product images | problem_user | Six different images that match the products | All six products show the same dog picture | Fail | Major | P2 | BUG-002 |
+| TC-SD-015 | Sorting | EP | Sort by name Z to A | 1. Select "Name (Z to A)" | za | Products in reverse alphabetical order | As expected | Pass | Major | P2 |  |
+| TC-SD-016 | Sorting | EP | Sort by price low to high | 1. Select "Price (low to high)" | lohi | Prices ascending: 7.99 … 49.99 | As expected | Pass | Major | P2 |  |
+| TC-SD-017 | Sorting | EP | Sort by price high to low | 1. Select "Price (high to low)" | hilo | Prices descending: 49.99 … 7.99 | As expected | Pass | Major | P2 |  |
+| TC-SD-018 | Sorting | EP | Sort Z to A for problem_user | 1. Select "Name (Z to A)" | problem_user, za | Products in reverse alphabetical order | Order does not change (still A to Z) | Fail | Major | P2 | BUG-003 |
+| TC-SD-019 | Sorting | EP | Sort Z to A for error_user | 1. Select "Name (Z to A)" | error_user, za | List sorted, no error | Browser alert "Sorting is broken! This error has been reported to Backtrace." and list not sorted | Fail | Major | P2 | BUG-008 |
+| TC-SD-020 | Products | EP | Prices for visual_user match the catalogue | 1. Compare each price with the standard_user list | visual_user | Same prices as the catalogue (e.g. Backpack $29.99) | Prices are different and change on every page load (e.g. $21.82, $97.72); cart uses the real prices | Fail | Major | P1 | BUG-012 |
+| TC-SD-021 | Product details | EP | Detail page matches the list | 1. Note name and price of the first product<br>2. Click the product name | Sauce Labs Backpack | Detail page shows the same name and price | As expected | Pass | Major | P2 |  |
+| TC-SD-022 | Product details | ST | Back to products | 1. Click "Back to products" | - | Product list opens | As expected | Pass | Minor | P3 |  |
+| TC-SD-023 | Product details | EP | Detail page for problem_user | 1. Click "Sauce Labs Backpack" | problem_user | Backpack detail page opens | "Sauce Labs Fleece Jacket" page opens (id=5) instead of the Backpack | Fail | Major | P2 | BUG-006 |
+| TC-SD-024 | Cart | ST | Add one item | 1. Click "Add to cart" on Backpack | Sauce Labs Backpack | Badge shows 1, button changes to Remove | As expected | Pass | Critical | P1 |  |
+| TC-SD-025 | Cart | ST | Remove item from product list | 1. Click "Remove" on Backpack | Sauce Labs Backpack | Badge disappears, button changes back to Add to cart | As expected | Pass | Major | P2 |  |
+| TC-SD-026 | Cart | BVA | Add all six items (upper boundary) | 1. Click "Add to cart" on all six products | 6 items | Badge shows 6 | As expected | Pass | Major | P2 |  |
+| TC-SD-027 | Cart | EP | Cart lists added items | 1. Add Backpack and Bike Light<br>2. Open the cart | 2 items | Both items listed with quantity 1 | As expected | Pass | Major | P1 |  |
+| TC-SD-028 | Cart | ST | Remove item on cart page | 1. Click "Remove" | Sauce Labs Backpack | Item removed from the cart list | As expected | Pass | Major | P2 |  |
+| TC-SD-029 | Cart | ST | Continue shopping | 1. Click "Continue Shopping" | - | Product list opens | As expected | Pass | Minor | P3 |  |
+| TC-SD-030 | Cart | ST | Cart kept after logout / login | 1. Add Bike Light<br>2. Logout<br>3. Log in again | standard_user | Badge still shows 1 | As expected | Pass | Minor | P3 |  |
+| TC-SD-031 | Cart | BVA | Add all six items for problem_user | 1. Click "Add to cart" on all six products | problem_user | Badge shows 6 | Badge shows 3; Add to cart does nothing for Bolt T-Shirt, Fleece Jacket and Red T-Shirt | Fail | Major | P1 | BUG-004 |
+| TC-SD-032 | Cart | ST | Remove item for problem_user | 1. Click "Remove" on Backpack | problem_user | Badge disappears | Nothing happens; badge stays 1 and button stays "Remove" | Fail | Major | P2 | BUG-005 |
+| TC-SD-033 | Checkout | DT | All checkout fields valid | 1. Enter first name, last name, postal code<br>2. Click Continue | Rahim / Uddin / 1207 | Checkout overview page opens | As expected | Pass | Critical | P1 |  |
+| TC-SD-034 | Checkout | DT | First name empty | 1. Leave first name empty<br>2. Fill the rest<br>3. Click Continue | (empty) / Uddin / 1207 | Error "First Name is required" | As expected | Pass | Major | P2 |  |
+| TC-SD-035 | Checkout | DT | Last name empty | 1. Leave last name empty<br>2. Fill the rest<br>3. Click Continue | Rahim / (empty) / 1207 | Error "Last Name is required" | As expected | Pass | Major | P2 |  |
+| TC-SD-036 | Checkout | DT | Postal code empty | 1. Leave postal code empty<br>2. Fill the rest<br>3. Click Continue | Rahim / Uddin / (empty) | Error "Postal Code is required" | As expected | Pass | Major | P2 |  |
+| TC-SD-037 | Checkout | EP | Totals for one item | 1. Read item total, tax and total | Backpack $29.99 | Item total $29.99, Tax $2.40 (8%), Total $32.39 | As expected | Pass | Critical | P1 |  |
+| TC-SD-038 | Checkout | EG | Item total format for five items | 1. Add Bike Light, Bolt T-Shirt, Red T-Shirt, Backpack, Fleece Jacket (low-to-high order)<br>2. Go to checkout overview | 9.99+15.99+15.99+29.99+49.99 | "Item total: $121.95" | "Item total: $121.94999999999999" (floating-point value not rounded) | Fail | Major | P2 | BUG-001 |
+| TC-SD-039 | Checkout | ST | Finish the order | 1. Click Finish | - | "Thank you for your order!" shown and cart badge cleared | As expected | Pass | Critical | P1 |  |
+| TC-SD-040 | Checkout | ST | Cancel on overview | 1. Click Cancel | - | Product list opens and the cart is kept | As expected | Pass | Minor | P3 |  |
+| TC-SD-041 | Checkout | EP | Checkout information for problem_user | 1. Type first name<br>2. Type last name<br>3. Type postal code<br>4. Click Continue | Rahim / Uddin / 1207 | Overview page opens | Typing in Last Name replaces First Name with the last letter; Last Name stays empty; "Last Name is required" blocks checkout | Fail | Critical | P1 | BUG-007 |
+| TC-SD-042 | Checkout | EP | Finish order for error_user | 1. Click Finish | error_user | "Thank you for your order!" shown | Nothing happens; page stays on the overview, order cannot be completed | Fail | Critical | P1 | BUG-009 |
+| TC-SD-043 | Checkout | EG | Checkout with an empty cart | 1. Open the cart<br>2. Click Checkout | 0 items | Checkout is not allowed (button disabled or message) | Checkout continues; overview shows "Item total: $0" and Finish completes an empty order | Fail | Minor | P2 | BUG-014 |
+| TC-SD-044 | Menu | ST | Logout and Back button | 1. Open menu<br>2. Click Logout<br>3. Press browser Back | - | Login page; Back shows "when you are logged in" error, no product data | As expected | Pass | Critical | P1 |  |
+| TC-SD-045 | Menu | ST | Reset App State | 1. Open menu<br>2. Click Reset App State | - | Badge removed and Backpack button shows "Add to cart" | Badge removed but the Backpack button still shows "Remove" until the page is reloaded | Fail | Minor | P3 | BUG-015 |
+| TC-SD-046 | Menu | EP | About link | 1. Open menu<br>2. Check the About link | - | Points to https://saucelabs.com/ | As expected | Pass | Trivial | P3 |  |
+| TC-SD-047 | Footer | EP | Footer social links | 1. Check X, Facebook and LinkedIn links | - | Three links to Sauce Labs pages, each opens in a new tab | As expected | Pass | Trivial | P3 |  |
+| TC-SD-048 | Accessibility | EG | Image alt text | 1. Inspect alt text of product images | - | Each image alt equals the product name | As expected | Pass | Minor | P3 |  |
+| TC-SD-049 | Accessibility | EG | Keyboard-only login | 1. Focus username<br>2. Type, Tab, type password<br>3. Press Enter | standard_user / secret_sauce | Login works without a mouse | As expected | Pass | Major | P2 |  |
+| TC-SD-050 | UI | EP | Login page on a 390 px screen | 1. Open the login page | 390×844 | No horizontal scroll; Login button visible | As expected | Pass | Minor | P3 |  |
+| TC-SD-051 | Checkout | EP | Last name field for error_user | 1. Type a last name | Uddin | Field shows "Uddin" | Field stays empty, yet Continue is accepted without the required last name | Fail | Major | P2 | BUG-010 |
+| TC-SD-052 | Cart | BVA | Add all six items for error_user | 1. Click "Add to cart" on all six products | error_user | Badge shows 6 | Badge shows 3; Add to cart does nothing for Bolt T-Shirt, Fleece Jacket and Red T-Shirt | Fail | Major | P1 | BUG-011 |

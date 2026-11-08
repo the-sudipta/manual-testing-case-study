@@ -1,0 +1,92 @@
+﻿"Test Case ID","Module","Requirement","Technique","Scenario","Pre-conditions","Test Steps","Test Data","Expected Result","Actual Result","Status","Severity","Priority","Bug ID","Remarks"
+"TC-SD-001","Login","SD-R01","EP","Login with valid standard user","Pre: Sauce Demo login page is open","1. Enter username
+2. Enter password
+3. Click Login","standard_user / secret_sauce","Products page opens with title ""Products""","As expected","Pass","Critical","P1","","Executed 2026-11-08 on chromium"
+"TC-SD-002","Login","SD-R01","EP","Login with locked-out user","Pre: Sauce Demo login page is open","1. Enter locked_out_user
+2. Enter password
+3. Click Login","locked_out_user / secret_sauce","Error ""Sorry, this user has been locked out."" is shown","As expected","Pass","Major","P1","","Executed 2026-11-08 on chromium"
+"TC-SD-003","Login","SD-R01","EP","Login with wrong password","Pre: Sauce Demo login page is open","1. Enter standard_user
+2. Enter a wrong password
+3. Click Login","standard_user / wrong_password","Error ""Username and password do not match any user in this service""","As expected","Pass","Major","P1","","Executed 2026-11-08 on chromium"
+"TC-SD-004","Login","SD-R01","DT","Login with empty username","Pre: Sauce Demo login page is open","1. Leave username empty
+2. Enter password
+3. Click Login","(empty) / secret_sauce","Error ""Username is required""","As expected","Pass","Minor","P2","","Executed 2026-11-08 on chromium"
+"TC-SD-005","Login","SD-R01","DT","Login with empty password","Pre: Sauce Demo login page is open","1. Enter username
+2. Leave password empty
+3. Click Login","standard_user / (empty)","Error ""Password is required""","As expected","Pass","Minor","P2","","Executed 2026-11-08 on chromium"
+"TC-SD-006","Login","SD-R01","DT","Login with both fields empty","Pre: Sauce Demo login page is open","1. Leave both fields empty
+2. Click Login","(empty) / (empty)","Error ""Username is required"" (username checked first)","As expected","Pass","Minor","P2","","Executed 2026-11-08 on chromium"
+"TC-SD-007","Login","SD-R01","EG","Username is case-sensitive","Pre: Sauce Demo login page is open","1. Enter username with capital letters
+2. Enter password
+3. Click Login","Standard_User / secret_sauce","Login is rejected with ""do not match"" error","As expected","Pass","Minor","P3","","Executed 2026-11-08 on chromium"
+"TC-SD-008","Login","SD-R01","EG","Close the error message","Pre: Sauce Demo login page is open","1. Log in as locked_out_user
+2. Click the X on the error","locked_out_user","Error message disappears","As expected","Pass","Trivial","P3","","Executed 2026-11-08 on chromium"
+"TC-SD-009","Login","SD-R01","ST","Open inventory URL without login","Pre: Not logged in","1. Open /inventory.html directly","URL /inventory.html","Redirected to login with ""You can only access '/inventory.html' when you are logged in.""","As expected","Pass","Critical","P1","","Executed 2026-11-08 on chromium"
+"TC-SD-010","Login","SD-R01","EP","Login time for performance_glitch_user","Pre: Sauce Demo login page is open","1. Enter performance_glitch_user
+2. Enter password
+3. Click Login
+4. Measure time until product list shows","performance_glitch_user / secret_sauce","Product list shows within 4 seconds (standard_user takes under 1 second)","Product list appears after about 5 seconds (standard_user: under 1 second)","Fail","Major","P2","BUG-013","Executed 2026-11-08 on chromium"
+"TC-SD-011","Login","SD-R10","EG","Password is masked","Pre: Sauce Demo login page is open","1. Type in the password field","secret_sauce","Characters are hidden (input type=password)","As expected","Pass","Major","P2","","Executed 2026-11-08 on chromium"
+"TC-SD-012","Products","SD-R02","EP","Product list content","Pre: Logged in as standard_user","1. Look at the product list","-","6 products, each with image, name, description, price and Add to cart","As expected","Pass","Critical","P1","","Executed 2026-11-08 on chromium"
+"TC-SD-013","Products","SD-R02","EP","Each product has its own image","Pre: Logged in as standard_user","1. Compare the six product images","-","Six different images","As expected","Pass","Minor","P2","","Executed 2026-11-08 on chromium"
+"TC-SD-014","Products","SD-R02","EP","Product images for problem_user","Pre: Logged in as problem_user","1. Compare the six product images","problem_user","Six different images that match the products","All six products show the same dog picture","Fail","Major","P2","BUG-002","Executed 2026-11-08 on chromium"
+"TC-SD-015","Sorting","SD-R03","EP","Sort by name Z to A","Pre: Logged in as standard_user","1. Select ""Name (Z to A)""","za","Products in reverse alphabetical order","As expected","Pass","Major","P2","","Executed 2026-11-08 on chromium"
+"TC-SD-016","Sorting","SD-R03","EP","Sort by price low to high","Pre: Logged in as standard_user","1. Select ""Price (low to high)""","lohi","Prices ascending: 7.99 … 49.99","As expected","Pass","Major","P2","","Executed 2026-11-08 on chromium"
+"TC-SD-017","Sorting","SD-R03","EP","Sort by price high to low","Pre: Logged in as standard_user","1. Select ""Price (high to low)""","hilo","Prices descending: 49.99 … 7.99","As expected","Pass","Major","P2","","Executed 2026-11-08 on chromium"
+"TC-SD-018","Sorting","SD-R03","EP","Sort Z to A for problem_user","Pre: Logged in as problem_user","1. Select ""Name (Z to A)""","problem_user, za","Products in reverse alphabetical order","Order does not change (still A to Z)","Fail","Major","P2","BUG-003","Executed 2026-11-08 on chromium"
+"TC-SD-019","Sorting","SD-R03","EP","Sort Z to A for error_user","Pre: Logged in as error_user","1. Select ""Name (Z to A)""","error_user, za","List sorted, no error","Browser alert ""Sorting is broken! This error has been reported to Backtrace."" and list not sorted","Fail","Major","P2","BUG-008","Executed 2026-11-08 on chromium"
+"TC-SD-020","Products","SD-R02","EP","Prices for visual_user match the catalogue","Pre: Logged in as visual_user","1. Compare each price with the standard_user list","visual_user","Same prices as the catalogue (e.g. Backpack $29.99)","Prices are different and change on every page load (e.g. $21.82, $97.72); cart uses the real prices","Fail","Major","P1","BUG-012","Executed 2026-11-08 on chromium"
+"TC-SD-021","Product details","SD-R04","EP","Detail page matches the list","Pre: Logged in as standard_user","1. Note name and price of the first product
+2. Click the product name","Sauce Labs Backpack","Detail page shows the same name and price","As expected","Pass","Major","P2","","Executed 2026-11-08 on chromium"
+"TC-SD-022","Product details","SD-R04","ST","Back to products","Pre: Product detail page is open","1. Click ""Back to products""","-","Product list opens","As expected","Pass","Minor","P3","","Executed 2026-11-08 on chromium"
+"TC-SD-023","Product details","SD-R04","EP","Detail page for problem_user","Pre: Logged in as problem_user","1. Click ""Sauce Labs Backpack""","problem_user","Backpack detail page opens","""Sauce Labs Fleece Jacket"" page opens (id=5) instead of the Backpack","Fail","Major","P2","BUG-006","Executed 2026-11-08 on chromium"
+"TC-SD-024","Cart","SD-R05","ST","Add one item","Pre: Logged in as standard_user","1. Click ""Add to cart"" on Backpack","Sauce Labs Backpack","Badge shows 1, button changes to Remove","As expected","Pass","Critical","P1","","Executed 2026-11-08 on chromium"
+"TC-SD-025","Cart","SD-R05","ST","Remove item from product list","Pre: Backpack is in the cart","1. Click ""Remove"" on Backpack","Sauce Labs Backpack","Badge disappears, button changes back to Add to cart","As expected","Pass","Major","P2","","Executed 2026-11-08 on chromium"
+"TC-SD-026","Cart","SD-R05","BVA","Add all six items (upper boundary)","Pre: Logged in as standard_user","1. Click ""Add to cart"" on all six products","6 items","Badge shows 6","As expected","Pass","Major","P2","","Executed 2026-11-08 on chromium"
+"TC-SD-027","Cart","SD-R05","EP","Cart lists added items","Pre: Logged in as standard_user","1. Add Backpack and Bike Light
+2. Open the cart","2 items","Both items listed with quantity 1","As expected","Pass","Major","P1","","Executed 2026-11-08 on chromium"
+"TC-SD-028","Cart","SD-R05","ST","Remove item on cart page","Pre: Backpack is in the cart, cart page open","1. Click ""Remove""","Sauce Labs Backpack","Item removed from the cart list","As expected","Pass","Major","P2","","Executed 2026-11-08 on chromium"
+"TC-SD-029","Cart","SD-R05","ST","Continue shopping","Pre: Cart page open","1. Click ""Continue Shopping""","-","Product list opens","As expected","Pass","Minor","P3","","Executed 2026-11-08 on chromium"
+"TC-SD-030","Cart","SD-R05","ST","Cart kept after logout / login","Pre: Logged in as standard_user","1. Add Bike Light
+2. Logout
+3. Log in again","standard_user","Badge still shows 1","As expected","Pass","Minor","P3","","Executed 2026-11-08 on chromium"
+"TC-SD-031","Cart","SD-R05","BVA","Add all six items for problem_user","Pre: Logged in as problem_user","1. Click ""Add to cart"" on all six products","problem_user","Badge shows 6","Badge shows 3; Add to cart does nothing for Bolt T-Shirt, Fleece Jacket and Red T-Shirt","Fail","Major","P1","BUG-004","Executed 2026-11-08 on chromium"
+"TC-SD-032","Cart","SD-R05","ST","Remove item for problem_user","Pre: Logged in as problem_user, Backpack added","1. Click ""Remove"" on Backpack","problem_user","Badge disappears","Nothing happens; badge stays 1 and button stays ""Remove""","Fail","Major","P2","BUG-005","Executed 2026-11-08 on chromium"
+"TC-SD-033","Checkout","SD-R06","DT","All checkout fields valid","Pre: 1 item in cart, checkout information page open","1. Enter first name, last name, postal code
+2. Click Continue","Rahim / Uddin / 1207","Checkout overview page opens","As expected","Pass","Critical","P1","","Executed 2026-11-08 on chromium"
+"TC-SD-034","Checkout","SD-R06","DT","First name empty","Pre: Checkout information page open","1. Leave first name empty
+2. Fill the rest
+3. Click Continue","(empty) / Uddin / 1207","Error ""First Name is required""","As expected","Pass","Major","P2","","Executed 2026-11-08 on chromium"
+"TC-SD-035","Checkout","SD-R06","DT","Last name empty","Pre: Checkout information page open","1. Leave last name empty
+2. Fill the rest
+3. Click Continue","Rahim / (empty) / 1207","Error ""Last Name is required""","As expected","Pass","Major","P2","","Executed 2026-11-08 on chromium"
+"TC-SD-036","Checkout","SD-R06","DT","Postal code empty","Pre: Checkout information page open","1. Leave postal code empty
+2. Fill the rest
+3. Click Continue","Rahim / Uddin / (empty)","Error ""Postal Code is required""","As expected","Pass","Major","P2","","Executed 2026-11-08 on chromium"
+"TC-SD-037","Checkout","SD-R07","EP","Totals for one item","Pre: Backpack in cart, overview page open","1. Read item total, tax and total","Backpack $29.99","Item total $29.99, Tax $2.40 (8%), Total $32.39","As expected","Pass","Critical","P1","","Executed 2026-11-08 on chromium"
+"TC-SD-038","Checkout","SD-R07","EG","Item total format for five items","Pre: Logged in as standard_user","1. Add Bike Light, Bolt T-Shirt, Red T-Shirt, Backpack, Fleece Jacket (low-to-high order)
+2. Go to checkout overview","9.99+15.99+15.99+29.99+49.99","""Item total: $121.95""","""Item total: $121.94999999999999"" (floating-point value not rounded)","Fail","Major","P2","BUG-001","Executed 2026-11-08 on chromium"
+"TC-SD-039","Checkout","SD-R08","ST","Finish the order","Pre: Overview page open","1. Click Finish","-","""Thank you for your order!"" shown and cart badge cleared","As expected","Pass","Critical","P1","","Executed 2026-11-08 on chromium"
+"TC-SD-040","Checkout","SD-R08","ST","Cancel on overview","Pre: Overview page open","1. Click Cancel","-","Product list opens and the cart is kept","As expected","Pass","Minor","P3","","Executed 2026-11-08 on chromium"
+"TC-SD-041","Checkout","SD-R06","EP","Checkout information for problem_user","Pre: problem_user, checkout information page open","1. Type first name
+2. Type last name
+3. Type postal code
+4. Click Continue","Rahim / Uddin / 1207","Overview page opens","Typing in Last Name replaces First Name with the last letter; Last Name stays empty; ""Last Name is required"" blocks checkout","Fail","Critical","P1","BUG-007","Executed 2026-11-08 on chromium"
+"TC-SD-042","Checkout","SD-R08","EP","Finish order for error_user","Pre: error_user, overview page open","1. Click Finish","error_user","""Thank you for your order!"" shown","Nothing happens; page stays on the overview, order cannot be completed","Fail","Critical","P1","BUG-009","Executed 2026-11-08 on chromium"
+"TC-SD-043","Checkout","SD-R08","EG","Checkout with an empty cart","Pre: Logged in, cart empty","1. Open the cart
+2. Click Checkout","0 items","Checkout is not allowed (button disabled or message)","Checkout continues; overview shows ""Item total: $0"" and Finish completes an empty order","Fail","Minor","P2","BUG-014","Executed 2026-11-08 on chromium"
+"TC-SD-044","Menu","SD-R09","ST","Logout and Back button","Pre: Logged in as standard_user","1. Open menu
+2. Click Logout
+3. Press browser Back","-","Login page; Back shows ""when you are logged in"" error, no product data","As expected","Pass","Critical","P1","","Executed 2026-11-08 on chromium"
+"TC-SD-045","Menu","SD-R09","ST","Reset App State","Pre: Backpack in the cart","1. Open menu
+2. Click Reset App State","-","Badge removed and Backpack button shows ""Add to cart""","Badge removed but the Backpack button still shows ""Remove"" until the page is reloaded","Fail","Minor","P3","BUG-015","Executed 2026-11-08 on chromium"
+"TC-SD-046","Menu","SD-R09","EP","About link","Pre: Logged in as standard_user","1. Open menu
+2. Check the About link","-","Points to https://saucelabs.com/","As expected","Pass","Trivial","P3","","Executed 2026-11-08 on chromium"
+"TC-SD-047","Footer","SD-R09","EP","Footer social links","Pre: Logged in as standard_user","1. Check X, Facebook and LinkedIn links","-","Three links to Sauce Labs pages, each opens in a new tab","As expected","Pass","Trivial","P3","","Executed 2026-11-08 on chromium"
+"TC-SD-048","Accessibility","SD-R10","EG","Image alt text","Pre: Logged in as standard_user","1. Inspect alt text of product images","-","Each image alt equals the product name","As expected","Pass","Minor","P3","","Executed 2026-11-08 on chromium"
+"TC-SD-049","Accessibility","SD-R10","EG","Keyboard-only login","Pre: Sauce Demo login page is open","1. Focus username
+2. Type, Tab, type password
+3. Press Enter","standard_user / secret_sauce","Login works without a mouse","As expected","Pass","Major","P2","","Executed 2026-11-08 on chromium"
+"TC-SD-050","UI","SD-R10","EP","Login page on a 390 px screen","Pre: Browser width 390 px","1. Open the login page","390×844","No horizontal scroll; Login button visible","As expected","Pass","Minor","P3","","Executed 2026-11-08 on chromium"
+"TC-SD-051","Checkout","SD-R06","EP","Last name field for error_user","Pre: error_user, checkout information page open","1. Type a last name","Uddin","Field shows ""Uddin""","Field stays empty, yet Continue is accepted without the required last name","Fail","Major","P2","BUG-010","Executed 2026-11-08 on chromium"
+"TC-SD-052","Cart","SD-R05","BVA","Add all six items for error_user","Pre: Logged in as error_user","1. Click ""Add to cart"" on all six products","error_user","Badge shows 6","Badge shows 3; Add to cart does nothing for Bolt T-Shirt, Fleece Jacket and Red T-Shirt","Fail","Major","P1","BUG-011","Executed 2026-11-08 on chromium"

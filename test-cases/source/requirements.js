@@ -1,0 +1,20 @@
+// Requirements derived from the visible behaviour of each application (no formal spec is published).
+module.exports = [
+  { id: 'SD-R01', app: 'Sauce Demo', text: 'Users log in with a valid username and password; invalid or locked users get a clear error; pages need a login.' },
+  { id: 'SD-R02', app: 'Sauce Demo', text: 'The product list shows six products with the correct image, name, description and price.' },
+  { id: 'SD-R03', app: 'Sauce Demo', text: 'Products can be sorted by name (A–Z, Z–A) and price (low–high, high–low).' },
+  { id: 'SD-R04', app: 'Sauce Demo', text: 'The product detail page shows the product that was selected.' },
+  { id: 'SD-R05', app: 'Sauce Demo', text: 'Users can add and remove items; the cart badge and cart page always match.' },
+  { id: 'SD-R06', app: 'Sauce Demo', text: 'Checkout requires first name, last name and postal code.' },
+  { id: 'SD-R07', app: 'Sauce Demo', text: 'The overview shows item total, 8% tax and total, correctly rounded to two decimals.' },
+  { id: 'SD-R08', app: 'Sauce Demo', text: 'Finishing the order confirms it and empties the cart; cancel keeps the cart.' },
+  { id: 'SD-R09', app: 'Sauce Demo', text: 'The menu offers Logout, Reset App State and About; footer links go to Sauce Labs pages.' },
+  { id: 'SD-R10', app: 'Sauce Demo', text: 'Basic accessibility: masked password, image alt text, keyboard use, mobile width.' },
+  { id: 'BK-R01', app: 'Booking platform', text: 'The front page shows the B&B branding, contact details and the list of rooms.' },
+  { id: 'BK-R02', app: 'Booking platform', text: 'Navbar and footer links take the user to the matching section.' },
+  { id: 'BK-R03', app: 'Booking platform', text: 'Guests can check availability for a valid date range; invalid ranges are rejected.' },
+  { id: 'BK-R04', app: 'Booking platform', text: 'Guests can open a room and reserve it with their details.' },
+  { id: 'BK-R05', app: 'Booking platform', text: 'The contact form validates name, email, phone (11–21), subject (5–100) and message (20–2000).' },
+  { id: 'BK-R06', app: 'Booking platform', text: 'Admins log in with valid credentials, get an error otherwise, and can log out.' },
+  { id: 'BK-R07', app: 'Booking platform', text: 'Cookie and privacy policy pages are reachable from the footer.' },
+];
