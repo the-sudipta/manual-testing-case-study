@@ -1,0 +1,76 @@
+name: Bug report
+description: Report a reproducible defect found during testing
+title: "BUG-XXX: <short description of the problem>"
+labels: ["bug", "status:new"]
+body:
+  - type: dropdown
+    id: application
+    attributes:
+      label: Application
+      options:
+        - Sauce Demo (https://www.saucedemo.com)
+        - Restful Booker Platform (https://automationintesting.online)
+    validations:
+      required: true
+  - type: input
+    id: module
+    attributes:
+      label: Module
+      placeholder: Login / Products / Cart / Checkout / Contact / Reservation / Admin
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: Windows 11, Chrome 131, 1280x720
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options: [Critical, Major, Minor, Trivial]
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options: [P1, P2, P3]
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Screenshot, video/GIF, response body or console log
+    validations:
+      required: true
+  - type: input
+    id: test-case
+    attributes:
+      label: Related test case
+      placeholder: TC-SD-041

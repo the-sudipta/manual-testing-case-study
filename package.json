@@ -7,8 +7,10 @@
     "execute:smoke": "playwright test -c execution --grep @smoke",
     "build:workbooks": "node scripts/build-workbooks.js",
     "build:charts": "node scripts/build-charts.js",
-    "report": "npm run build:workbooks && npm run build:charts",
-    "test": "npm run execute && npm run report"
+    "report": "npm run build:workbooks && npm run build:bugs && npm run build:charts",
+    "test": "npm run execute && npm run report",
+    "build:bugs": "node scripts/build-bug-reports.js",
+    "publish:issues": "node scripts/publish-issues.js"
   },
   "repository": {
     "type": "git",

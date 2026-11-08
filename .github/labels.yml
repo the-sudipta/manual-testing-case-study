@@ -1,0 +1,12 @@
+# Labels used for defect tracking. Created on GitHub by scripts/publish-issues.ps1.
+- { name: bug, color: d73a4a, description: Reproducible defect }
+- { name: "severity:critical", color: b60205, description: Blocks a core journey, no workaround }
+- { name: "severity:major", color: d93f0b, description: Core feature gives a wrong result }
+- { name: "severity:minor", color: fbca04, description: Visible problem, feature still usable }
+- { name: "severity:trivial", color: c2e0c6, description: Cosmetic }
+- { name: "priority:P1", color: 5319e7, description: Fix before release }
+- { name: "priority:P2", color: 7057ff, description: Fix in the next release }
+- { name: "priority:P3", color: c5def5, description: Fix when time allows }
+- { name: "status:new", color: ededed, description: Reported, not yet triaged }
+- { name: "app:sauce-demo", color: 0e8a16, description: Sauce Demo }
+- { name: "app:booking-platform", color: 1d76db, description: Restful Booker Platform }
