@@ -1,0 +1,4 @@
+Captured: 2026-11-08 13:52 UTC
+$ curl -X POST /api/message  (phone = "abcdefghijk")
+{"success":true}
+HTTP 200

@@ -1,0 +1,12 @@
+Captured: 2026-11-08 13:52 UTC
+$ curl -i https://automationintesting.online/api/room/1
+HTTP/1.1 500 Internal Server Error
+Date: Sun, 08 Nov 2026 13:52:28 GMT
+Transfer-Encoding: chunked
+Connection: keep-alive
+Server: cloudflare
+x-railway-request-id: 4M16lvMoTFuZl9_755So4g
+x-railway-edge: sin1
+x-hikari-trace: sin1.tr00
+
+Internal Server Error
