@@ -11,7 +11,7 @@ module.exports = defineConfig({
   workers: isCI ? 2 : 2, // public practice sites: stay gentle
   retries: 0, // a failure is a result to record, not something to hide
   reporter: [
-    ['list'],
+    isCI ? ['github'] : ['list'],
     ['html', { outputFolder: '../playwright-report', open: 'never' }],
     ['./support/results-reporter.js', { outputFile: 'execution/results/run-results.json' }],
   ],
