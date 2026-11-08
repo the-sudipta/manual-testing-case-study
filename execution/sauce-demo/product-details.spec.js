@@ -19,8 +19,8 @@ test.describe('Sauce Demo - Product details', () => {
   test('TC-SD-021 should show the same name and price on the detail page', async ({ page }) => {
     await loginAs(page, 'standard_user');
     const listed = await openFirstProduct(page);
-    await expect(page.locator('[data-test="inventory-item-name"]')).toHaveText(listed.name);
-    await expect(page.locator('[data-test="inventory-item-price"]')).toHaveText(listed.price);
+    await expect(page.locator('.inventory_details_container [data-test="inventory-item-name"]')).toHaveText(listed.name);
+    await expect(page.locator('.inventory_details_container [data-test="inventory-item-price"]')).toHaveText(listed.price);
   });
 
   test('TC-SD-022 should return to the product list with Back to products', async ({ page }) => {
@@ -34,6 +34,6 @@ test.describe('Sauce Demo - Product details', () => {
     knownDefect(test, 'BUG-006', 'clicking a product opens a different product page');
     await loginAs(page, 'problem_user');
     const listed = await openFirstProduct(page);
-    await expect(page.locator('[data-test="inventory-item-name"]')).toHaveText(listed.name);
+    await expect(page.locator('.inventory_details_container [data-test="inventory-item-name"]')).toHaveText(listed.name);
   });
 });

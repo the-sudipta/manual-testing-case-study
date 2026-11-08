@@ -22,10 +22,19 @@ async function sortBy(page, option) {
   await page.locator('[data-test="product-sort-container"]').selectOption(option);
 }
 
+// Clicks a button and, if it did not switch to "Remove" (click landed while the list was still rendering),
+// clicks once more. A button that never works (a real defect) is left as it is.
+async function clickAdd(button) {
+  await button.click();
+  const switched = await button.filter({ hasText: 'Remove' }).waitFor({ timeout: 1_500 }).then(() => true, () => false);
+  if (!switched) await button.click();
+}
+
 async function addAllToCart(page) {
+  await page.locator('[data-test="inventory-list"]').waitFor();
   const count = await page.locator('.inventory_item').count();
   for (let i = 0; i < count; i += 1) {
-    await page.locator('.inventory_item').nth(i).locator('button').click();
+    await clickAdd(page.locator('.inventory_item').nth(i).locator('button'));
   }
 }
 
