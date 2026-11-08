@@ -1,0 +1,28 @@
+{
+  "name": "manual-testing-case-study",
+  "version": "1.0.0",
+  "description": "Manual QA case study: test plan, test cases, execution evidence and bug reports for two practice web apps",
+  "scripts": {
+    "execute": "playwright test -c execution",
+    "execute:smoke": "playwright test -c execution --grep @smoke",
+    "build:workbooks": "node scripts/build-workbooks.js",
+    "build:charts": "node scripts/build-charts.js",
+    "report": "npm run build:workbooks && npm run build:charts",
+    "test": "npm run execute && npm run report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-sudipta/manual-testing-case-study.git"
+  },
+  "author": "Sudipta Kumar Das",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/the-sudipta/manual-testing-case-study/issues"
+  },
+  "homepage": "https://github.com/the-sudipta/manual-testing-case-study#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "exceljs": "^4.4.0"
+  },
+  "private": true
+}
